@@ -1,11 +1,22 @@
+import { useState } from 'react';
 import './App.css';
-import { Form, Title } from './components';
+import { ButtonNewPassword, Form, Title } from './components';
 
 function App() {
+  const [showForm, setShowForm] = useState(false);
+
+  const handleShowForm = () => {
+    setShowForm(!showForm);
+  };
+
   return (
     <main>
       <Title />
-      <Form />
+
+      {showForm ? (<Form handleShowForm={ handleShowForm } />
+      ) : (
+        <ButtonNewPassword handleShowForm={ handleShowForm } />
+      )}
     </main>
   );
 }

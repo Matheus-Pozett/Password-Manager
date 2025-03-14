@@ -1,4 +1,8 @@
-function Form() {
+type FormProps = {
+  handleShowForm: () => void;
+};
+
+function Form({ handleShowForm }: FormProps) {
   return (
     <form>
       <label htmlFor="service">Nome do serviço</label>
@@ -14,7 +18,7 @@ function Form() {
       <input type="text" id="url" />
 
       <button>Cadastrar</button>
-      <button>Cancelar</button>
+      <button type="button" onClick={ handleShowForm }>Cancelar</button>
     </form>
   );
 }
