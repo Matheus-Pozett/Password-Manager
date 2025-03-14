@@ -1,10 +1,11 @@
 import './App.css';
-import { Title } from './components';
+import { Form, Title } from './components';
 
 function App() {
   return (
     <main>
       <Title />
+      <Form />
     </main>
   );
 }
