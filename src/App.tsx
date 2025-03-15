@@ -25,6 +25,12 @@ function App() {
       newPassword,
     ]);
   };
+  const handleClickRemoveItem = (item: FormInputTypes) => {
+    const updateList = passwordsList.filter(
+      (element) => element.service !== item.service,
+    );
+    setPasswordsList(updateList);
+  };
 
   return (
     <main>
@@ -43,7 +49,11 @@ function App() {
         <p>Nenhuma senha cadastrada</p>
       ) : (
         passwordsList.map((pass) => (
-          <PasswordList key={ pass.service } data={ pass } />
+          <PasswordList
+            key={ pass.service }
+            data={ pass }
+            handleClickRemoveItem={ handleClickRemoveItem }
+          />
         ))
       )}
     </main>
