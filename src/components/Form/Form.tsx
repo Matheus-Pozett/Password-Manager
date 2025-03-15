@@ -15,6 +15,7 @@ function Form(
   { handleShowForm, formValues, setFormValues, handleNewPassword }: FormProps,
 ) {
   const [disableButton, setDisableButton] = useState(false);
+  const [showPasswordForm, setShowPasswordForm] = useState(false);
 
   const formValidate = (values: FormInputTypes) => {
     const serviceIsValid = values.service.trim() !== '';
@@ -54,7 +55,9 @@ function Form(
       timer: 1500,
     });
   };
-
+  const handleShowPasswordForm = () => {
+    setShowPasswordForm(!showPasswordForm);
+  };
   return (
     <>
       <form onSubmit={ handleSubmitForm }>
@@ -78,12 +81,19 @@ function Form(
 
         <label htmlFor="password">Senha</label>
         <input
-          type="password"
+          type={ showPasswordForm ? 'text' : 'password' }
           id="password"
           name="password"
           value={ formValues.password }
           onChange={ handleChange }
         />
+        <button
+          type="button"
+          data-testid="show-hide-form-password"
+          onClick={ handleShowPasswordForm }
+        >
+          {showPasswordForm ? 'Ocultar senha' : 'Mostrar senha'}
+        </button>
 
         <label htmlFor="url">URL</label>
         <input
