@@ -7,9 +7,14 @@ function App() {
   const [showForm, setShowForm] = useState(false);
   const [formValues, setFormValues] = useState<FormInputTypes>(INITIAL_FORM_VALUES);
   const [passwordsList, setPasswordsList] = useState<FormInputTypes[]>([]);
+  const [checked, setChecked] = useState(false);
 
   const handleShowForm = () => {
     setShowForm(!showForm);
+  };
+
+  const handleChangeCheckbox = () => {
+    setChecked(!checked);
   };
 
   const handleNewPassword = () => {
@@ -45,16 +50,28 @@ function App() {
       ) : (
         <ButtonNewPassword handleShowForm={ handleShowForm } />
       )}
+
       {passwordsList.length === 0 ? (
         <p>Nenhuma senha cadastrada</p>
       ) : (
-        passwordsList.map((pass) => (
-          <PasswordList
-            key={ pass.service }
-            data={ pass }
-            handleClickRemoveItem={ handleClickRemoveItem }
+        <div>
+          <label htmlFor="check">Esconder senhas</label>
+          <input
+            type="checkbox"
+            name="check"
+            id="check"
+            checked={ checked }
+            onChange={ handleChangeCheckbox }
           />
-        ))
+          {passwordsList.map((pass) => (
+            <PasswordList
+              key={ pass.service }
+              data={ pass }
+              handleClickRemoveItem={ handleClickRemoveItem }
+              checked={ checked }
+            />
+          ))}
+        </div>
       )}
     </main>
   );
