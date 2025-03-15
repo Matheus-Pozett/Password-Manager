@@ -1,21 +1,18 @@
 import { useState } from 'react';
-import { FormInputTypes } from '../../types';
+import { FormInputTypes, INITIAL_FORM_VALUES } from '../../types';
 
 type FormProps = {
   handleShowForm: () => void;
-};
-
-const INITIAL_FORM_VALUES: FormInputTypes = {
-  service: '',
-  login: '',
-  password: '',
-  url: '',
+  formValues: FormInputTypes;
+  setFormValues: React.Dispatch<React.SetStateAction<FormInputTypes>>
+  handleNewPassword: () => void
 };
 
 const LETTERS_NUMBERS_SPECIALS_REGEX = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[\W_]).+$/;
 
-function Form({ handleShowForm }: FormProps) {
-  const [formValues, setFormValues] = useState<FormInputTypes>(INITIAL_FORM_VALUES);
+function Form(
+  { handleShowForm, formValues, setFormValues, handleNewPassword }: FormProps,
+) {
   const [disableButton, setDisableButton] = useState(false);
 
   const formValidate = (values: FormInputTypes) => {
@@ -45,7 +42,11 @@ function Form({ handleShowForm }: FormProps) {
 
   const handleSubmitForm = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    handleNewPassword();
+    setFormValues(INITIAL_FORM_VALUES);
+    handleShowForm();
   };
+
   return (
     <>
       <form onSubmit={ handleSubmitForm }>

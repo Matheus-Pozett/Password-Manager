@@ -4,3 +4,10 @@ export type FormInputTypes = {
   password: string,
   url: string
 };
+
+export const INITIAL_FORM_VALUES: FormInputTypes = {
+  service: '',
+  login: '',
+  password: '',
+  url: '',
+};
