@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Swal from 'sweetalert2';
-import { FormInputTypes, INITIAL_FORM_VALUES } from '../../types';
+import { FormInputTypes } from '../../types';
 
 type FormProps = {
   handleShowForm: () => void;
@@ -45,7 +45,6 @@ function Form(
   const handleSubmitForm = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     handleNewPassword();
-    setFormValues(INITIAL_FORM_VALUES);
     handleShowForm();
 
     Swal.fire({

@@ -29,6 +29,7 @@ function App() {
       ...passwordsList,
       newPassword,
     ]);
+    setFormValues(INITIAL_FORM_VALUES);
   };
   const handleClickRemoveItem = (item: FormInputTypes) => {
     const updateList = passwordsList.filter(
@@ -38,41 +39,47 @@ function App() {
   };
 
   return (
-    <main>
+    <main className="app-container">
       <Title />
+      <section>
+        {showForm ? (<Form
+          handleShowForm={ handleShowForm }
+          formValues={ formValues }
+          setFormValues={ setFormValues }
+          handleNewPassword={ handleNewPassword }
+        />
+        ) : (
+          <ButtonNewPassword handleShowForm={ handleShowForm } />
+        )}
+      </section>
 
-      {showForm ? (<Form
-        handleShowForm={ handleShowForm }
-        formValues={ formValues }
-        setFormValues={ setFormValues }
-        handleNewPassword={ handleNewPassword }
-      />
-      ) : (
-        <ButtonNewPassword handleShowForm={ handleShowForm } />
-      )}
-
-      {passwordsList.length === 0 ? (
-        <p>Nenhuma senha cadastrada</p>
-      ) : (
-        <div>
-          <label htmlFor="check">Esconder senhas</label>
-          <input
-            type="checkbox"
-            name="check"
-            id="check"
-            checked={ checked }
-            onChange={ handleChangeCheckbox }
-          />
-          {passwordsList.map((pass) => (
-            <PasswordList
-              key={ pass.service }
-              data={ pass }
-              handleClickRemoveItem={ handleClickRemoveItem }
+      <section>
+        {passwordsList.length === 0 ? (
+          <p>Nenhuma senha cadastrada</p>
+        ) : (
+          <article>
+            <label htmlFor="check">Esconder senhas</label>
+            <input
+              type="checkbox"
+              name="check"
+              id="check"
               checked={ checked }
+              onChange={ handleChangeCheckbox }
             />
-          ))}
-        </div>
-      )}
+            <ul>
+              {passwordsList.map((pass) => (
+                <li key={ pass.service }>
+                  <PasswordList
+                    data={ pass }
+                    handleClickRemoveItem={ handleClickRemoveItem }
+                    checked={ checked }
+                  />
+                </li>
+              ))}
+            </ul>
+          </article>
+        )}
+      </section>
     </main>
   );
 }

@@ -1,8 +1,21 @@
+import './title.css';
+
 function Title() {
   return (
-    <div>
-      <h1>Gerenciador de senhas</h1>
-    </div>
+    <header className="header-container">
+      <h1 className="header-title">
+        Gerenciador
+        {' '}
+        <span className="asterisco">*</span>
+        {' '}
+        de
+        {' '}
+        <span className="asterisco">*</span>
+        {' '}
+        senhas
+
+      </h1>
+    </header>
   );
 }
 
