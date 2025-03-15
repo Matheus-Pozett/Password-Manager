@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Swal from 'sweetalert2';
 import { FormInputTypes, INITIAL_FORM_VALUES } from '../../types';
 
 type FormProps = {
@@ -45,6 +46,13 @@ function Form(
     handleNewPassword();
     setFormValues(INITIAL_FORM_VALUES);
     handleShowForm();
+
+    Swal.fire({
+      title: 'Serviço cadastrado com sucesso',
+      icon: 'success',
+      showConfirmButton: false,
+      timer: 1500,
+    });
   };
 
   return (
