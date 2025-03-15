@@ -12,6 +12,8 @@ const INITIAL_FORM_VALUES: FormInputTypes = {
   url: '',
 };
 
+const LETTERS_NUMBERS_SPECIALS_REGEX = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[\W_]).+$/;
+
 function Form({ handleShowForm }: FormProps) {
   const [formValues, setFormValues] = useState<FormInputTypes>(INITIAL_FORM_VALUES);
   const [disableButton, setDisableButton] = useState(false);
@@ -45,46 +47,69 @@ function Form({ handleShowForm }: FormProps) {
     event.preventDefault();
   };
   return (
-    <form onSubmit={ handleSubmitForm }>
-      <label htmlFor="service">Nome do serviço</label>
-      <input
-        type="text"
-        id="service"
-        name="service"
-        value={ formValues.service }
-        onChange={ handleChange }
-      />
+    <>
+      <form onSubmit={ handleSubmitForm }>
+        <label htmlFor="service">Nome do serviço</label>
+        <input
+          type="text"
+          id="service"
+          name="service"
+          value={ formValues.service }
+          onChange={ handleChange }
+        />
 
-      <label htmlFor="login">Login</label>
-      <input
-        type="text"
-        id="login"
-        name="login"
-        value={ formValues.login }
-        onChange={ handleChange }
-      />
+        <label htmlFor="login">Login</label>
+        <input
+          type="text"
+          id="login"
+          name="login"
+          value={ formValues.login }
+          onChange={ handleChange }
+        />
 
-      <label htmlFor="password">Senha</label>
-      <input
-        type="password"
-        id="password"
-        name="password"
-        value={ formValues.password }
-        onChange={ handleChange }
-      />
+        <label htmlFor="password">Senha</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          value={ formValues.password }
+          onChange={ handleChange }
+        />
 
-      <label htmlFor="url">URL</label>
-      <input
-        type="text"
-        id="url"
-        name="url"
-        value={ formValues.url }
-        onChange={ handleChange }
-      />
+        <label htmlFor="url">URL</label>
+        <input
+          type="text"
+          id="url"
+          name="url"
+          value={ formValues.url }
+          onChange={ handleChange }
+        />
 
-      <button disabled={ !disableButton }>Cadastrar</button>
-      <button type="button" onClick={ handleShowForm }>Cancelar</button>
-    </form>
+        <button disabled={ !disableButton }>Cadastrar</button>
+        <button type="button" onClick={ handleShowForm }>Cancelar</button>
+      </form>
+      <div>
+        {formValues.password.length >= 8 ? (
+          <p className="valid-password-check">Possuir 8 ou mais caracteres</p>
+        ) : (
+          <p className="invalid-password-check">Possuir 8 ou mais caracteres</p>) }
+
+        {formValues.password.length !== 0 && formValues.password.length <= 16 ? (
+          <p className="valid-password-check">Possuir até 16 caracteres</p>
+        ) : (
+          <p className="invalid-password-check">Possuir até 16 caracteres</p>)}
+
+        {LETTERS_NUMBERS_SPECIALS_REGEX.test(formValues.password) ? (
+          <p className="valid-password-check">Possuir letras e números</p>
+        ) : (
+          <p className="invalid-password-check">Possuir letras e números</p>)}
+
+        {LETTERS_NUMBERS_SPECIALS_REGEX.test(formValues.password) ? (
+          <p className="valid-password-check">Possuir algum caractere especial</p>
+        ) : (
+          <p className="invalid-password-check">Possuir algum caractere especial</p>)}
+      </div>
+    </>
   );
 }
 
