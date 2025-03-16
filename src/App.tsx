@@ -60,15 +60,22 @@ function App() {
             <img src="/🦆 icon _unlock_.svg" alt="" />
           </div>
         ) : (
-          <article>
-            <label htmlFor="check">Esconder senhas</label>
-            <input
-              type="checkbox"
-              name="check"
-              id="check"
-              checked={ checked }
-              onChange={ handleChangeCheckbox }
-            />
+          <article className="article-passwords">
+            <div className="checkbox-esconder-senha-container">
+              <p>Esconder senhas</p>
+              <label htmlFor="check" className="toggle-switch">
+                <input
+                  type="checkbox"
+                  name="check"
+                  id="check"
+                  checked={ checked }
+                  onChange={ handleChangeCheckbox }
+                />
+                <div className="toggle-switch-background">
+                  <div className="toggle-switch-handle" />
+                </div>
+              </label>
+            </div>
             <ul>
               {passwordsList.map((pass) => (
                 <li key={ pass.service }>

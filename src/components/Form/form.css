@@ -4,6 +4,7 @@
   border-radius: 10px;
   display: flex;
   height: 412px;
+  justify-content: center;
   padding: 30px;
   width: 897px;
 }
@@ -23,6 +24,7 @@ input:-webkit-autofill {
   color: #8d8d8d;
   font-size: 12px;
   font-weight: 400;
+  margin-top: 15px;
 }
 
 .input-service-url {
@@ -38,7 +40,6 @@ input:-webkit-autofill {
 
 .login-senha-container {
   display: flex;
-  margin-top: 20px;
 }
 
 .login-container {
@@ -49,6 +50,7 @@ input:-webkit-autofill {
 .senha-container {
   display: flex;
   flex-direction: column;
+  margin-left: 16px;
 }
 
 .input-login {
@@ -72,7 +74,6 @@ input:-webkit-autofill {
   border-radius: 10px;
   color: white;
   height: 53px;
-  margin-left: 16px;
   padding-left: 10px;
   padding-right: 40px;
   width: 271px;
@@ -91,12 +92,14 @@ input:-webkit-autofill {
 }
 
 .buttons-form-container {
+  align-items: center;
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 }
 
 .button-cadastrar {
-  background: #3590f5;
+  background-color: #3590f5;
   border: none;
   border-radius: 100px;
   color: white;
@@ -107,6 +110,13 @@ input:-webkit-autofill {
   width: 211px;
 }
 
+.button-cadastrar:disabled {
+  background: gray; /* Fica cinza */
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+
 .button-cancelar {
   background-color: #1e2029;
   border: none;
@@ -116,4 +126,31 @@ input:-webkit-autofill {
   font-weight: 700;
   height: 21px;
   width: 72px;
+}
+
+.display-container {
+  background: #252730;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 147px;
+  justify-content: space-around;
+  margin-left: 50px;
+  padding: 10px;
+  width: 263px;
+}
+
+.text-senha-deve {
+  color: white;
+}
+
+.form-container span {
+  color: red;
+}
+
+.campos-obrigatorios {
+  color: #8d8d8d;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 10px;
 }

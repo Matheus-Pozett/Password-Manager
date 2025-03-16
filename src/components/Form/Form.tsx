@@ -64,7 +64,14 @@ function Form(
   return (
     <div className="div-form-component">
       <form className="form-container" onSubmit={ handleSubmitForm }>
-        <label htmlFor="service" className="labels-form">Nome do serviço</label>
+        <label
+          htmlFor="service"
+          className="labels-form"
+        >
+          Nome do serviço
+          {' '}
+          <span>*</span>
+        </label>
         <input
           type="text"
           id="service"
@@ -76,7 +83,14 @@ function Form(
 
         <div className="login-senha-container">
           <div className="login-container">
-            <label htmlFor="login" className="labels-form">Login</label>
+            <label
+              htmlFor="login"
+              className="labels-form"
+            >
+              Login
+              {' '}
+              <span>*</span>
+            </label>
             <input
               type="text"
               id="login"
@@ -87,7 +101,14 @@ function Form(
             />
           </div>
           <div className="senha-container">
-            <label htmlFor="password" className="labels-form">Senha</label>
+            <label
+              htmlFor="password"
+              className="labels-form"
+            >
+              Senha
+              {' '}
+              <span>*</span>
+            </label>
             <div className="input-button-container">
               <input
                 type={ showPasswordForm ? 'text' : 'password' }
@@ -118,6 +139,11 @@ function Form(
           value={ formValues.url }
           onChange={ handleChange }
         />
+        <p className="campos-obrigatorios">
+          <span>*</span>
+          {' '}
+          Campos obrigatórios
+        </p>
         <div className="buttons-form-container">
           <button
             type="button"
@@ -133,9 +159,10 @@ function Form(
             Cadastrar
           </button>
         </div>
-
       </form>
-      <div>
+
+      <div className="display-container">
+        <p className="text-senha-deve">A senha deve: </p>
         {formValues.password.length >= 8 ? (
           <p className="valid-password-check">Possuir 8 ou mais caracteres</p>
         ) : (
