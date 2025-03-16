@@ -1,0 +1,119 @@
+.div-form-component {
+  align-items: center;
+  background-color: #1e2029;
+  border-radius: 10px;
+  display: flex;
+  height: 412px;
+  padding: 30px;
+  width: 897px;
+}
+
+input:-webkit-autofill {
+  background-color: #3b3f50;
+  box-shadow: 0 0 0 1000px #3b3f50 inset;
+  -webkit-text-fill-color: white;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.labels-form {
+  color: #8d8d8d;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.input-service-url {
+  background: #3b3f50;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  height: 53px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 525px;
+}
+
+.login-senha-container {
+  display: flex;
+  margin-top: 20px;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.senha-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-login {
+  background: #3b3f50;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  height: 53px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 236px;
+}
+
+.input-button-container {
+  position: relative;
+}
+
+.input-senha {
+  background: #3b3f50;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  height: 53px;
+  margin-left: 16px;
+  padding-left: 10px;
+  padding-right: 40px;
+  width: 271px;
+}
+
+.button-hide-password {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  margin-right: 10px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.buttons-form-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-cadastrar {
+  background: #3590f5;
+  border: none;
+  border-radius: 100px;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  height: 55px;
+  width: 211px;
+}
+
+.button-cancelar {
+  background-color: #1e2029;
+  border: none;
+  color: #3590f5;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  height: 21px;
+  width: 72px;
+}

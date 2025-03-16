@@ -11,3 +11,29 @@
   flex-direction: column;
   height: 100vh;
 }
+
+.section-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.section-serviceList {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.none-password-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-nenhuma-senha {
+  color: #838383;
+  font-size: 26px;
+  font-weight: 400;
+}

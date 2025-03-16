@@ -1,6 +1,10 @@
+/* eslint-disable react/jsx-max-depth */
 import { useState } from 'react';
 import Swal from 'sweetalert2';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { FormInputTypes } from '../../types';
+import './form.css';
 
 type FormProps = {
   handleShowForm: () => void;
@@ -58,53 +62,78 @@ function Form(
     setShowPasswordForm(!showPasswordForm);
   };
   return (
-    <>
-      <form onSubmit={ handleSubmitForm }>
-        <label htmlFor="service">Nome do serviço</label>
+    <div className="div-form-component">
+      <form className="form-container" onSubmit={ handleSubmitForm }>
+        <label htmlFor="service" className="labels-form">Nome do serviço</label>
         <input
           type="text"
           id="service"
           name="service"
+          className="input-service-url"
           value={ formValues.service }
           onChange={ handleChange }
         />
 
-        <label htmlFor="login">Login</label>
-        <input
-          type="text"
-          id="login"
-          name="login"
-          value={ formValues.login }
-          onChange={ handleChange }
-        />
+        <div className="login-senha-container">
+          <div className="login-container">
+            <label htmlFor="login" className="labels-form">Login</label>
+            <input
+              type="text"
+              id="login"
+              name="login"
+              className="input-login"
+              value={ formValues.login }
+              onChange={ handleChange }
+            />
+          </div>
+          <div className="senha-container">
+            <label htmlFor="password" className="labels-form">Senha</label>
+            <div className="input-button-container">
+              <input
+                type={ showPasswordForm ? 'text' : 'password' }
+                id="password"
+                name="password"
+                className="input-senha"
+                value={ formValues.password }
+                onChange={ handleChange }
+              />
+              <button
+                type="button"
+                data-testid="show-hide-form-password"
+                className="button-hide-password"
+                onClick={ handleShowPasswordForm }
+              >
+                {showPasswordForm ? <VisibilityOffIcon /> : <RemoveRedEyeIcon />}
+              </button>
+            </div>
+          </div>
+        </div>
 
-        <label htmlFor="password">Senha</label>
-        <input
-          type={ showPasswordForm ? 'text' : 'password' }
-          id="password"
-          name="password"
-          value={ formValues.password }
-          onChange={ handleChange }
-        />
-        <button
-          type="button"
-          data-testid="show-hide-form-password"
-          onClick={ handleShowPasswordForm }
-        >
-          {showPasswordForm ? 'Ocultar senha' : 'Mostrar senha'}
-        </button>
-
-        <label htmlFor="url">URL</label>
+        <label htmlFor="url" className="labels-form">URL</label>
         <input
           type="text"
           id="url"
           name="url"
+          className="input-service-url"
           value={ formValues.url }
           onChange={ handleChange }
         />
+        <div className="buttons-form-container">
+          <button
+            type="button"
+            onClick={ handleShowForm }
+            className="button-cancelar"
+          >
+            Cancelar
+          </button>
+          <button
+            disabled={ !disableButton }
+            className="button-cadastrar"
+          >
+            Cadastrar
+          </button>
+        </div>
 
-        <button disabled={ !disableButton }>Cadastrar</button>
-        <button type="button" onClick={ handleShowForm }>Cancelar</button>
       </form>
       <div>
         {formValues.password.length >= 8 ? (
@@ -127,7 +156,7 @@ function Form(
         ) : (
           <p className="invalid-password-check">Possuir algum caractere especial</p>)}
       </div>
-    </>
+    </div>
   );
 }
 

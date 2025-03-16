@@ -41,7 +41,7 @@ function App() {
   return (
     <main className="app-container">
       <Title />
-      <section>
+      <section className="section-form">
         {showForm ? (<Form
           handleShowForm={ handleShowForm }
           formValues={ formValues }
@@ -53,9 +53,12 @@ function App() {
         )}
       </section>
 
-      <section>
+      <section className="section-serviceList">
         {passwordsList.length === 0 ? (
-          <p>Nenhuma senha cadastrada</p>
+          <div className="none-password-container">
+            <p className="text-nenhuma-senha">Nenhuma senha cadastrada</p>
+            <img src="/🦆 icon _unlock_.svg" alt="" />
+          </div>
         ) : (
           <article>
             <label htmlFor="check">Esconder senhas</label>

@@ -13,6 +13,7 @@ function ButtonNewPassword({ handleShowForm }: ButtonNewPasswordProps) {
       >
         Cadastrar nova senha
       </button>
+      <hr className="line" />
     </div>
   );
 }
