@@ -129,3 +129,16 @@
 .toggle-switch input[ type = 'checkbox' ]:checked + .toggle-switch-background .toggle-switch-handle {
   transform: translateX(20px);
 }
+
+.ul-container {
+  display: grid;
+  gap: 60px 90px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); /* Ajuste de largura das colunas */
+  grid-template-rows: auto;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.li-item {
+  list-style: none;
+}

@@ -76,9 +76,10 @@ function App() {
                 </div>
               </label>
             </div>
-            <ul>
+
+            <ul className="ul-container">
               {passwordsList.map((pass) => (
-                <li key={ pass.service }>
+                <li key={ pass.service } className="li-item">
                   <PasswordList
                     data={ pass }
                     handleClickRemoveItem={ handleClickRemoveItem }
