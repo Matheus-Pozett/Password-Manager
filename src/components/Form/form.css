@@ -1,0 +1,156 @@
+.div-form-component {
+  align-items: center;
+  background-color: #1e2029;
+  border-radius: 10px;
+  display: flex;
+  height: 412px;
+  justify-content: center;
+  padding: 30px;
+  width: 897px;
+}
+
+input:-webkit-autofill {
+  background-color: #3b3f50;
+  box-shadow: 0 0 0 1000px #3b3f50 inset;
+  -webkit-text-fill-color: white;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.labels-form {
+  color: #8d8d8d;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 15px;
+}
+
+.input-service-url {
+  background: #3b3f50;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  height: 53px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 525px;
+}
+
+.login-senha-container {
+  display: flex;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.senha-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 16px;
+}
+
+.input-login {
+  background: #3b3f50;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  height: 53px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 236px;
+}
+
+.input-button-container {
+  position: relative;
+}
+
+.input-senha {
+  background: #3b3f50;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  height: 53px;
+  padding-left: 10px;
+  padding-right: 40px;
+  width: 271px;
+}
+
+.button-hide-password {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  margin-right: 10px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.buttons-form-container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.button-cadastrar {
+  background-color: #3590f5;
+  border: none;
+  border-radius: 100px;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  height: 55px;
+  width: 211px;
+}
+
+.button-cadastrar:disabled {
+  background: gray; /* Fica cinza */
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+
+.button-cancelar {
+  background-color: #1e2029;
+  border: none;
+  color: #3590f5;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  height: 21px;
+  width: 72px;
+}
+
+.display-container {
+  background: #252730;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 147px;
+  justify-content: space-around;
+  margin-left: 50px;
+  padding: 10px;
+  width: 263px;
+}
+
+.text-senha-deve {
+  color: white;
+}
+
+.form-container span {
+  color: red;
+}
+
+.campos-obrigatorios {
+  color: #8d8d8d;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 10px;
+}
